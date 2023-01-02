@@ -1,0 +1,120 @@
+basePath: /api/v1
+definitions:
+  model.LoanSanctionRequest:
+    properties:
+      amount:
+        type: integer
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      date:
+        type: string
+      isEligibleForReducedInterest:
+        type: string
+      isInGracePeriod:
+        description: Grace Period Status
+        type: string
+      kycId:
+        type: string
+      loaPackId:
+        type: string
+      loanCollectTblName:
+        type: string
+      loanNum:
+        type: string
+      penaltyDate:
+        type: string
+      penaltyTblName:
+        type: string
+      pigmyNum:
+        type: string
+      referredBy:
+        type: string
+      relativeName1:
+        type: string
+      relativeName2:
+        type: string
+      relativeNum1:
+        type: string
+      relativeNum2:
+        type: string
+      remarks:
+        type: string
+      status:
+        description: Order Status
+        type: string
+      updatedAt:
+        type: string
+      updatedBy:
+        type: string
+    type: object
+  model.LoanSanctionResponse:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+host: localhost:3081
+info:
+  contact:
+    email: shivukumar076@gmail.com
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Loan Sanction Wirte server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Loan Sanction API
+  version: "1.0"
+paths:
+  /loanSanction:
+    post:
+      consumes:
+      - application/json
+      description: Loan Sanction
+      parameters:
+      - description: The input LoanSanctionRequest struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.LoanSanctionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.LoanSanctionRequest'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.LoanSanctionResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.LoanSanctionResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.LoanSanctionResponse'
+      summary: Loan Sanction
+      tags:
+      - Loan Sanction
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: Ping
+      produces:
+      - application/json
+      responses: {}
+      summary: Ping
+      tags:
+      - Ping
+swagger: "2.0"

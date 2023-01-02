@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Loan Sanction Wirte server.",
+        "title": "Loan Sanction API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "shivukumar076@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3081",
+    "basePath": "/api/v1",
+    "paths": {
+        "/loanSanction": {
+            "post": {
+                "description": "Loan Sanction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loan Sanction"
+                ],
+                "summary": "Loan Sanction",
+                "parameters": [
+                    {
+                        "description": "The input LoanSanctionRequest struct",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.LoanSanctionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.LoanSanctionRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "description": "Ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ping"
+                ],
+                "summary": "Ping",
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "model.LoanSanctionRequest": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "isEligibleForReducedInterest": {
+                    "type": "string"
+                },
+                "isInGracePeriod": {
+                    "description": "Grace Period Status",
+                    "type": "string"
+                },
+                "kycId": {
+                    "type": "string"
+                },
+                "loaPackId": {
+                    "type": "string"
+                },
+                "loanCollectTblName": {
+                    "type": "string"
+                },
+                "loanNum": {
+                    "type": "string"
+                },
+                "penaltyDate": {
+                    "type": "string"
+                },
+                "penaltyTblName": {
+                    "type": "string"
+                },
+                "pigmyNum": {
+                    "type": "string"
+                },
+                "referredBy": {
+                    "type": "string"
+                },
+                "relativeName1": {
+                    "type": "string"
+                },
+                "relativeName2": {
+                    "type": "string"
+                },
+                "relativeNum1": {
+                    "type": "string"
+                },
+                "relativeNum2": {
+                    "type": "string"
+                },
+                "remarks": {
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Order Status",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "updatedBy": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.LoanSanctionResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 400
+                },
+                "message": {
+                    "type": "string",
+                    "example": "status bad request"
+                }
+            }
+        }
+    }
+}

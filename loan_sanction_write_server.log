@@ -1,0 +1,3 @@
+LOAN_SANCTION_WRITE_SERVER DEBUG 2023/01/03 01:13:26.040211 main.go:41: ::init:: Log File Name-> loan_sanction_write_server.log, App Name-> LOAN_SANCTION_WRITE_SERVER
+LOAN_SANCTION_WRITE_SERVER DEBUG 2023/01/03 01:13:26.040275 PsqlDbConn.go:13: ::Init:: Trying to connect DB
+LOAN_SANCTION_WRITE_SERVER DEBUG 2023/01/03 01:13:26.047118 PsqlDbConn.go:28: ::Init:: DB Connected successfully
