@@ -1,0 +1,10 @@
+.vscode
+.dockerignore
+.gitignore
+tmp
+README.md
+startup.sh
+
+*.log
+BranchRead
+

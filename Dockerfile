@@ -1,7 +1,7 @@
 FROM golang:1.19.4 AS build
 WORKDIR /go/src
 COPY src ./src
-COPY main.go .
+COPY BranchRead.go .
 COPY go.mod .
 COPY docs ./docs
 

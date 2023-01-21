@@ -42,9 +42,9 @@ func LoanSanctionPost(c *gin.Context) {
 // @Summary      Ping
 // @Description  Ping
 // @Tags         Ping
-// @Accept       json
-// @Produce      json
+// @Success      200              {string}  string    "ok"
+// @failure      400              {string}  string    "error"
 // @Router       /ping [get]
 func Ping(c *gin.Context) {
-	c.String(http.StatusOK, "Hello World!")
+	c.String(http.StatusOK, "PONG")
 }
