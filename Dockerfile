@@ -11,9 +11,14 @@ RUN go get -d -v ./...
 
 RUN go build -a -installsuffix cgo -o sbfin .
 
-FROM scratch AS runtime
+FROM alpine:3.17.2 AS runtime
 ENV GIN_MODE=release
-COPY --from=build /go/src ./
-COPY --from=build /go/src/sbfin ./
+RUN mkdir app
+RUN apk update && apk add bash && apk --no-cache add tzdata
+RUN mkdir -p app/src/main
+COPY --from=build /go/src/src/main/resources ./app/src/main/resources
+COPY --from=build /go/src/docs ./app/docs
+COPY --from=build /go/src/sbfin ./app/
+WORKDIR /app
 EXPOSE 3081
 ENTRYPOINT ["./sbfin"]

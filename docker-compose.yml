@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  
+ 
+volumes:
+  db:
+    driver: local
+
+networks:
+  backend-network:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
+        - subnet: 2001:3984:3989::/64
+          gateway: 2001:3984:3989::1    
