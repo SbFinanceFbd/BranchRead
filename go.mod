@@ -3,7 +3,7 @@ module github.com/SbFinanceFbd/BranchRead
 go 1.19
 
 require (
-	github.com/SbFinanceFbd/golib v0.0.0-20230314083104-f88cd9767233
+	github.com/SbFinanceFbd/golib v0.0.0-20230315174307-a115719dc85e
 	github.com/gin-gonic/gin v1.8.2
 	github.com/magiconair/properties v1.8.7
 	github.com/swaggo/files v1.0.0
