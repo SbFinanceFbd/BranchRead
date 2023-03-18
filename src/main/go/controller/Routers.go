@@ -1,7 +1,7 @@
 /*
  * Loan
  *
- * Loan sanction write docs
+ * Branch read docs
  *
  * API version: 0.0.1
  * Contact: shivukumar076@gmail.com
@@ -67,9 +67,21 @@ var routes = Routes{
 		Ping,
 	},
 	{
-		"LoanSanctionPost",
-		http.MethodPost,
-		config.AppConfig.MustGetString("routes.loanSanction"),
-		LoanSanctionPost,
+		"GetBranchs",
+		http.MethodGet,
+		config.AppConfig.MustGetString("routes.getBranchs"),
+		GetBranchs,
+	},
+	{
+		"GetBranchByBranchId",
+		http.MethodGet,
+		config.AppConfig.MustGetString("routes.getBranchByBranchId"),
+		GetBranchByBranchId,
+	},
+	{
+		"GetBranchByBranchName",
+		http.MethodGet,
+		config.AppConfig.MustGetString("routes.getBranchByBranchName"),
+		GetBranchByBranchName,
 	},
 }

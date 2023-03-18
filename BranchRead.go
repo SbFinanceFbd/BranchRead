@@ -1,7 +1,7 @@
 /*
  * Loan
  *
- * Loan sanction write docs
+ * Branch read docs
  *
  * API version: 0.0.1
  * Contact: shivukumar076@gmail.com

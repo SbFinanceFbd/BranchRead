@@ -1,59 +1,62 @@
 basePath: /api/v1
 definitions:
-  model.LoanSanctionRequest:
+  model.BranchData:
     properties:
-      amount:
-        type: integer
+      address:
+        example: "100"
+        type: string
+      branchTxnTblName:
+        example: "12"
+        type: string
       createdAt:
+        example: "2006-01-02 23:59:59"
         type: string
       createdBy:
+        example: shiva
         type: string
-      date:
+      district:
+        example: "12"
         type: string
-      isEligibleForReducedInterest:
+      id:
+        example: 1
+        type: integer
+      name:
+        example: branch_2022
         type: string
-      isInGracePeriod:
-        description: Grace Period Status
+      pinCode:
+        example: "12"
         type: string
-      kycId:
-        type: string
-      loaPackId:
-        type: string
-      loanCollectTblName:
-        type: string
-      loanNum:
-        type: string
-      penaltyDate:
-        type: string
-      penaltyTblName:
-        type: string
-      pigmyNum:
-        type: string
-      referredBy:
-        type: string
-      relativeName1:
-        type: string
-      relativeName2:
-        type: string
-      relativeNum1:
-        type: string
-      relativeNum2:
+      place:
+        example: "1000"
         type: string
       remarks:
+        example: test
+        type: string
+      state:
+        example: "12"
         type: string
       status:
-        description: Order Status
+        example: ACTIVE
+        type: string
+      taluka:
+        example: "12"
         type: string
       updatedAt:
+        example: "2006-01-02 23:59:59"
         type: string
       updatedBy:
+        example: shiva
         type: string
     type: object
-  model.LoanSanctionResponse:
+  model.BranchsResponse:
     properties:
       code:
         example: 400
         type: integer
+      data:
+        items:
+          $ref: '#/definitions/model.BranchData'
+        type: array
       message:
         example: status bad request
         type: string
@@ -72,48 +75,122 @@ info:
   title: Loan Sanction API
   version: "1.0"
 paths:
-  /loanSanction:
-    post:
+  /getBranchByBranchId/{branchId}:
+    get:
       consumes:
       - application/json
-      description: Loan Sanction
+      description: Branch
       parameters:
-      - description: The input LoanSanctionRequest struct
-        in: body
-        name: data
+      - description: Branch Id
+        in: path
+        name: branchId
         required: true
-        schema:
-          $ref: '#/definitions/model.LoanSanctionRequest'
+        type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/model.LoanSanctionRequest'
+            $ref: '#/definitions/model.BranchsResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/model.LoanSanctionResponse'
+            $ref: '#/definitions/model.BranchsResponse'
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/model.LoanSanctionResponse'
+            $ref: '#/definitions/model.BranchsResponse'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/model.LoanSanctionResponse'
-      summary: Loan Sanction
+            $ref: '#/definitions/model.BranchsResponse'
+      summary: Branch
       tags:
-      - Loan Sanction
-  /ping:
+      - Branch
+  /getBranchByBranchName/{branchName}:
     get:
       consumes:
       - application/json
-      description: Ping
+      description: Branch
+      parameters:
+      - description: Branch Name
+        in: path
+        name: branchName
+        required: true
+        type: string
       produces:
       - application/json
-      responses: {}
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+      summary: Branch
+      tags:
+      - Branch
+  /getBranchs/{page}/{size}:
+    get:
+      consumes:
+      - application/json
+      description: Branch
+      parameters:
+      - description: Page Number
+        in: path
+        name: page
+        required: true
+        type: string
+      - description: Per Page Records
+        in: path
+        name: size
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.BranchsResponse'
+      summary: Branch
+      tags:
+      - Branch
+  /ping:
+    get:
+      description: Ping
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
       summary: Ping
       tags:
       - Ping

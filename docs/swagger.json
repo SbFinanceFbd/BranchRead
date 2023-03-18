@@ -18,9 +18,9 @@
     "host": "localhost:3081",
     "basePath": "/api/v1",
     "paths": {
-        "/loanSanction": {
-            "post": {
-                "description": "Loan Sanction",
+        "/getBranchByBranchId/{branchId}": {
+            "get": {
+                "description": "Branch",
                 "consumes": [
                     "application/json"
                 ],
@@ -28,43 +28,148 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Loan Sanction"
+                    "Branch"
                 ],
-                "summary": "Loan Sanction",
+                "summary": "Branch",
                 "parameters": [
                     {
-                        "description": "The input LoanSanctionRequest struct",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.LoanSanctionRequest"
-                        }
+                        "type": "string",
+                        "description": "Branch Id",
+                        "name": "branchId",
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.LoanSanctionRequest"
+                            "$ref": "#/definitions/model.BranchsResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                            "$ref": "#/definitions/model.BranchsResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                            "$ref": "#/definitions/model.BranchsResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/model.LoanSanctionResponse"
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getBranchByBranchName/{branchName}": {
+            "get": {
+                "description": "Branch",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Branch"
+                ],
+                "summary": "Branch",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Branch Name",
+                        "name": "branchName",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getBranchs/{page}/{size}": {
+            "get": {
+                "description": "Branch",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Branch"
+                ],
+                "summary": "Branch",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Page Number",
+                        "name": "page",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Per Page Records",
+                        "name": "size",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/model.BranchsResponse"
                         }
                     }
                 }
@@ -73,100 +178,105 @@
         "/ping": {
             "get": {
                 "description": "Ping",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
                 "tags": [
                     "Ping"
                 ],
                 "summary": "Ping",
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }
     },
     "definitions": {
-        "model.LoanSanctionRequest": {
+        "model.BranchData": {
             "type": "object",
             "properties": {
-                "amount": {
-                    "type": "integer"
+                "address": {
+                    "type": "string",
+                    "example": "100"
+                },
+                "branchTxnTblName": {
+                    "type": "string",
+                    "example": "12"
                 },
                 "createdAt": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2006-01-02 23:59:59"
                 },
                 "createdBy": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "shiva"
                 },
-                "date": {
-                    "type": "string"
+                "district": {
+                    "type": "string",
+                    "example": "12"
                 },
-                "isEligibleForReducedInterest": {
-                    "type": "string"
+                "id": {
+                    "type": "integer",
+                    "example": 1
                 },
-                "isInGracePeriod": {
-                    "description": "Grace Period Status",
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "example": "branch_2022"
                 },
-                "kycId": {
-                    "type": "string"
+                "pinCode": {
+                    "type": "string",
+                    "example": "12"
                 },
-                "loaPackId": {
-                    "type": "string"
-                },
-                "loanCollectTblName": {
-                    "type": "string"
-                },
-                "loanNum": {
-                    "type": "string"
-                },
-                "penaltyDate": {
-                    "type": "string"
-                },
-                "penaltyTblName": {
-                    "type": "string"
-                },
-                "pigmyNum": {
-                    "type": "string"
-                },
-                "referredBy": {
-                    "type": "string"
-                },
-                "relativeName1": {
-                    "type": "string"
-                },
-                "relativeName2": {
-                    "type": "string"
-                },
-                "relativeNum1": {
-                    "type": "string"
-                },
-                "relativeNum2": {
-                    "type": "string"
+                "place": {
+                    "type": "string",
+                    "example": "1000"
                 },
                 "remarks": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "test"
+                },
+                "state": {
+                    "type": "string",
+                    "example": "12"
                 },
                 "status": {
-                    "description": "Order Status",
-                    "type": "string"
+                    "type": "string",
+                    "example": "ACTIVE"
+                },
+                "taluka": {
+                    "type": "string",
+                    "example": "12"
                 },
                 "updatedAt": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2006-01-02 23:59:59"
                 },
                 "updatedBy": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "shiva"
                 }
             }
         },
-        "model.LoanSanctionResponse": {
+        "model.BranchsResponse": {
             "type": "object",
             "properties": {
                 "code": {
                     "type": "integer",
                     "example": 400
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.BranchData"
+                    }
                 },
                 "message": {
                     "type": "string",
