@@ -39,6 +39,12 @@ github.com/SbFinanceFbd/golib v0.0.0-20230315174307-a115719dc85e h1:KHGLfjlx8xkf
 github.com/SbFinanceFbd/golib v0.0.0-20230315174307-a115719dc85e/go.mod h1:ccWXuk4Q8KO6e7Qyt7yTVj9IRvNlcZuqh1R92BEwrL8=
 github.com/SbFinanceFbd/golib v0.0.0-20230316095019-d72399f3c530 h1:CpCzt7IGheTAPdWlXzTsR2oSmWmvJlAxwM263TjVNu0=
 github.com/SbFinanceFbd/golib v0.0.0-20230316095019-d72399f3c530/go.mod h1:ccWXuk4Q8KO6e7Qyt7yTVj9IRvNlcZuqh1R92BEwrL8=
+github.com/SbFinanceFbd/golib v0.0.0-20230407164807-636d8a243cca h1:Xe0HzyBDk54+t89+xAltedA4i1xe7jdU6UeuQm64Sqk=
+github.com/SbFinanceFbd/golib v0.0.0-20230407164807-636d8a243cca/go.mod h1:ccWXuk4Q8KO6e7Qyt7yTVj9IRvNlcZuqh1R92BEwrL8=
+github.com/SbFinanceFbd/golib v0.0.0-20230408062751-2fd1ff85c983 h1:uOwXbY6+gglaqpq4HguPWKx/ZZGq+hl5lZ5xeHJuoX4=
+github.com/SbFinanceFbd/golib v0.0.0-20230408062751-2fd1ff85c983/go.mod h1:ccWXuk4Q8KO6e7Qyt7yTVj9IRvNlcZuqh1R92BEwrL8=
+github.com/SbFinanceFbd/golib v0.0.0-20230408063102-3121dc8a4ece h1:jEOJRyNT4pFic5+VGNK8cNZuAzkIuXvEoa9uZZxH3rw=
+github.com/SbFinanceFbd/golib v0.0.0-20230408063102-3121dc8a4ece/go.mod h1:ccWXuk4Q8KO6e7Qyt7yTVj9IRvNlcZuqh1R92BEwrL8=
 github.com/agiledragon/gomonkey/v2 v2.3.1/go.mod h1:ap1AmDzcVOAz1YpeJ3TCzIgstoaWLA6jbbgxfB4w2iY=
 github.com/cpuguy83/go-md2man/v2 v2.0.0-20190314233015-f79a8a8ca69d/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsrgA7czyZG/E6dU=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
